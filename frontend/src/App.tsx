@@ -8,7 +8,7 @@ import Home from './pages/Home';
 import Edit from './pages/Edit';
 import Bookmarks from './pages/Bookmarks';
 import User from './pages/User';
-import Contributor from './pages/Contributor';
+// import Contributor from './pages/Contributor';
 
 function App() {
   return (
@@ -22,7 +22,7 @@ function App() {
         <Route path="/edit/:id" element={<Edit />} />
         <Route path="/bookmarks" element={<Bookmarks />} />
         <Route path="/profile/:id" element={<User />} />
-        <Route path="/contributors" element={<Contributor />} />
+        {/* <Route path="/contributors" element={<Contributor />} /> */}
         <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
