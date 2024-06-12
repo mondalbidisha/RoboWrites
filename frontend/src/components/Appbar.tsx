@@ -29,14 +29,14 @@ const Appbar = ({ skipAuthCheck = false, pageActions, hideWriteAction = false }:
       </div>
 
       <div className="flex items-center gap-1">
-        {pathname === '/' && (
+        {/* {pathname === '/' && (
           <Link
             className="hidden sm:flex focus:outline-none hover:bg-gray-100 rounded-3xl focus:ring-4 focus:ring-gray-100 font-medium items-center gap-2 text-sm px-5 py-2.5"
             to="/contributors"
           >
             Contributors
           </Link>
-        )}
+        )} */}
 
         {isUserLoggedIn ? (
           <>
