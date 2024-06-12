@@ -15,7 +15,5 @@ export async function generateArticle(text: string, model = "gpt", apiKey: strin
 	if (model === "gpt") {
 		const response = await gpt(apiKey, text);
 		return response;
-	} else if (model === "gemini") {
-        // TODO: GEMINI Implementation goes here
 	}
 }
