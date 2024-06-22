@@ -44,10 +44,10 @@ const Search: React.FC = () => {
   }, [query, debouncedSearch]);
 
   return (
-    <div className="hidden md:block relative md:w-[190px] lg:w-[400px]">
+    <div className="hidden md:block relative md:w-[220px] lg:w-[500px]">
       <input
         type="text"
-        className="p-2 px-6 border rounded-full focus:outline-none focus:ring-black focus:ring-1 w-full"
+        className="p-2 px-6 border border-slate-50 rounded-full bg-slate-950 focus:text-slate-50 focus:outline-slate-50 focus:outline-offset-1 focus:ring-white focus:ring-1 w-full"
         placeholder="Search..."
         value={query}
         onChange={(e) => setQuery(e.target.value)}
@@ -64,19 +64,7 @@ const Search: React.FC = () => {
                   </Link>
                 ))
               ) : (
-                <div className="p-1">{loading ? 'Loading...' : 'No posts found'} </div>
-              )}
-            </div>
-            <div className="p-2">
-              <h3 className="text-lg font-semibold">Users</h3>
-              {results.users.length > 0 ? (
-                results.users.map((user) => (
-                  <Link key={user.id} to={`/profile/${user.id}`} className="block p-1 cursor-pointer hover:bg-gray-50">
-                    <div>{user.name}</div>
-                  </Link>
-                ))
-              ) : (
-                <div className="p-1">{loading ? 'Loading...' : 'No users found'} </div>
+                <div className="p-1">{loading ? 'Loading Posts ...' : 'No posts found'} </div>
               )}
             </div>
             <div className="p-2">
@@ -88,7 +76,7 @@ const Search: React.FC = () => {
                   </div>
                 ))
               ) : (
-                <div className="p-1">{loading ? 'Loading...' : 'No tags found'} </div>
+                <div className="p-1">{loading ? 'Loading Tags ...' : 'No tags found'} </div>
               )}
             </div>
           </div>

@@ -8,7 +8,7 @@
       scroll-snap-type: y mandatory;
     }
     body {
-      overflow: scroll;
+      /* overflow: scroll; */
       scroll-snap-type: y mandatory;
     }
     .snap-center {
@@ -42,6 +42,77 @@
   button.secondary:disabled {
     @apply opacity-60 pointer-events-none;
   }
+}
+
+#background-video {
+  filter: brightness(.8);
+  object-fit: cover;
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.homepage-button {
+  padding: 1.5rem;
+  position: relative;
+  display:inline-flex;
+  border: none;
+  min-width: 200px;
+  min-height: 50px;
+}
+
+.homepage-button-text {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  font-size: 1.5em;
+  background: black;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center
+}
+
+.homepage-button-background {
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  bottom: 1px;
+  left: 1px;
+  border-radius: 5px;
+  background: linear-gradient(-90deg, #007cf0, #00dfd8, #ff0080, #007cf0);
+  background-size: 600% 150%;
+  border: none;
+  padding: 0;
+  margin: 0;
+  animation: backgroundAnimation 8s ease-in-out infinite
+}
+
+
+@keyframes backgroundAnimation {
+  50% {
+    background-position: 140% 50%;
+    transform: skew(-2deg)
+  }
+}
+
+.homepage-button-background:after {
+  content: "";
+  position: absolute;
+  background-size: inherit;
+  background-image: inherit;
+  -webkit-animation: inherit;
+  animation: inherit;
+  left: 0;
+  right: 0;
+  top: 2px;
+  height: 100%;
+  filter: blur(.5rem)
 }
 
 .ql-editor {
