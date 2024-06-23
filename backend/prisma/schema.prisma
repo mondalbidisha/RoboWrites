@@ -1,5 +1,5 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
 
 generator client {
   provider = "prisma-client-js"
@@ -13,19 +13,19 @@ datasource db {
 }
 
 model User {
-  id           String       @id @default(uuid())
-  email        String       @unique
+  id           String         @id @default(uuid())
+  email        String         @unique
   name         String?
   details      String?
   profilePic   String?
   password     String
-  creationDate DateTime     @default(now())
+  creationDate DateTime       @default(now())
   posts        Post[]
   bookmarks    Bookmark[]
   claps        Clap[]
   comments     Comment[]
-  subscribers  Subscriber[] @relation("UserSubscribers")
-  subscribedTo Subscriber[] @relation("UserSubscribedTo")
+  subscribers  Subscriber[]   @relation("UserSubscribers")
+  subscribedTo Subscriber[]   @relation("UserSubscribedTo")
 }
 
 model Post {
@@ -41,21 +41,22 @@ model Post {
   comments      Comment[]
   tagsOnPost    TagsOnPost[]
 }
+
 model Bookmark {
-  id     String     @id @default(uuid())
-  user   User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id     String   @id @default(uuid())
+  user   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String
-  post   Post       @relation(fields: [postId], references: [id], onDelete: Cascade)
+  post   Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
   postId String
 }
 
 model Clap {
-  id     String     @id @default(uuid())
-  user   User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id     String       @id @default(uuid())
+  user   User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId String
-  post   Post       @relation(fields: [postId], references: [id], onDelete: Cascade)
+  post   Post         @relation(fields: [postId], references: [id], onDelete: Cascade)
   postId String
-  comment Comment?  @relation(fields: [commentId], references: [id], onDelete: Cascade)
+  comment Comment?    @relation(fields: [commentId], references: [id], onDelete: Cascade)
   commentId String? 
 }
 
@@ -75,26 +76,26 @@ model Comment {
 }
 
 model Tag {
-  id            String          @id @default(uuid())
+  id            String        @id @default(uuid())
   tagName       String
-  creationDate  DateTime        @default(now())
+  creationDate  DateTime      @default(now())
   tagsOnPost    TagsOnPost[]
 }
 
 model TagsOnPost {
-  id      String        @id @default(uuid())
-  tag     Tag           @relation(fields: [tagId], references: [id], onDelete: Cascade)
+  id      String    @id @default(uuid())
+  tag     Tag       @relation(fields: [tagId], references: [id], onDelete: Cascade)
   tagId   String
-  post    Post          @relation(fields: [postId], references: [id], onDelete: Cascade)
+  post    Post      @relation(fields: [postId], references: [id], onDelete: Cascade)
   postId  String
 }
 
 model Subscriber {
-  id            String   @id @default(uuid())
+  id            String    @id @default(uuid())
   userId        String
   subscriberId  String
-  creationDate  DateTime @default(now())
+  creationDate  DateTime  @default(now())
   
-  user          User     @relation("UserSubscribers", fields: [userId], references: [id])
-  subscriber    User     @relation("UserSubscribedTo", fields: [subscriberId], references: [id])
+  user          User      @relation("UserSubscribers", fields: [userId], references: [id])
+  subscriber    User      @relation("UserSubscribedTo", fields: [subscriberId], references: [id])
 }
