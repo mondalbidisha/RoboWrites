@@ -17,6 +17,8 @@ import ClapButton from '../ClapButton';
 import Avatar from '../Avatar';
 import { formatDateString } from '../../util/string';
 import Meteors from '../magic-ui/meteors';
+import VoiceOver from '../VoiceOver';
+import { getPlainTextFromHTML } from '../../util/string';
 
 const Story = () => {
   const { id } = useParams();
@@ -49,6 +51,9 @@ const Story = () => {
           handleClickOnAvatar={handleClickOnAvatar}
         />
         <ActionBox />
+        <div className="pt-4">
+          <VoiceOver content={getPlainTextFromHTML(blog?.content)} />
+        </div>
         <div className="py-4 text-slate-200">
           <ReactQuill value={blog?.content} readOnly={true} theme={'bubble'} />
         </div>
