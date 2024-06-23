@@ -16,6 +16,7 @@ import { Tags } from '../Tags';
 import ClapButton from '../ClapButton';
 import Avatar from '../Avatar';
 import { formatDateString } from '../../util/string';
+import Meteors from '../magic-ui/meteors';
 
 const Story = () => {
   const { id } = useParams();
@@ -29,16 +30,17 @@ const Story = () => {
 
   if (loading) {
     return (
-      <div className="flex flex-col justify-center items-center p-4 md:px-10">
+      <div className="flex flex-col justify-center items-center p-4 md:px-10 bg-gradient-to-b from-slate-950 via-slate-800 to-slate-950">
         <SingleBlogSkeleton />
       </div>
     );
   }
 
   return (
-    <div className="flex flex-col justify-center items-center p-4 md:px-10">
-      <div className="p-4 max-w-[680px]">
-        <div className="text-xl md:text-4xl font-extrabold py-4 line-clamp-4">{blog?.title}</div>
+    <div className="relative flex flex-col justify-center items-center p-4 md:px-10 bg-gradient-to-b from-slate-950 via-slate-800 to-slate-950">
+      <Meteors number={50}/>
+      <div className="p-4 max-w-[70%]">
+        <div className="text-xl md:text-5xl font-extrabold py-4 line-clamp-4 text-white">{blog?.title}</div>
         <AuthorBox
           name={blog?.author?.name}
           details={blog?.author?.details}
@@ -47,7 +49,7 @@ const Story = () => {
           handleClickOnAvatar={handleClickOnAvatar}
         />
         <ActionBox />
-        <div className="py-4">
+        <div className="py-4 text-slate-200">
           <ReactQuill value={blog?.content} readOnly={true} theme={'bubble'} />
         </div>
       </div>
@@ -172,7 +174,7 @@ const AuthorBox = ({
   handleClickOnAvatar: React.MouseEventHandler<HTMLDivElement>;
 }) => (
   <div className="p-4">
-    <div className="flex items-center gap-4 py-4">
+    <div className="flex items-center gap-4 py-4 text-slate-300">
       <Avatar name={name || 'Anonymous'} onClick={handleClickOnAvatar} imageSrc={profilePic} />
       <div>
         <div className="font-bold">{name || 'Anonymous'}</div>

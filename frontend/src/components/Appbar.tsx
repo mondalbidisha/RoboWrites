@@ -9,7 +9,7 @@ interface AppbarProps {
   hideWriteAction?: boolean;
 }
 
-const Appbar = ({ skipAuthCheck = false, pageActions, hideWriteAction = true }: AppbarProps) => {
+const Appbar = ({ skipAuthCheck = false, pageActions, hideWriteAction = false }: AppbarProps) => {
   const navigate = useNavigate();
   const location = useLocation();
   const shouldSnapCenter = ( location.pathname === "/" || location.pathname === "/blogs" ) ? "snap-center" : ""

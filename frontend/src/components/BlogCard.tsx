@@ -25,18 +25,18 @@ const BlogCard = ({ author, title, content, publishedDate, id, fullWidth, tagsOn
   return (
     <Link
       to={`/blog/${id}`}
-      className={`snap-center min-h-screen md:min-h-min md:h-min blog-card md:px-4 md:py-8 ${fullWidth ? 'w-full' : 'w-full md:w-3/6'} md:border-b md:border-gray-200 my-1 bg-white shadow-b-sm flex flex-col justify-between md:grid md:grid-cols-12 md:gap-6 lg:gap-0`}
+      className={`z-index-10 rounded-md bg-gradient-to-b from-slate-950 via-slate-800 to-slate-950 min-h-screen md:min-h-min md:h-min blog-card md:px-4 md:py-8 ${fullWidth ? 'w-full' : 'w-full md:w-4/6'} my-5 shadow-b-sm flex flex-col justify-between md:grid md:grid-cols-12 md:gap-6 lg:gap-0 hover:outline hover:outline-2 hover:outline-offset-2 hover:outline-slate-100`}
     >
       <div className="order-2 flex flex-col md:order-none md:col-span-9 p-4 md:px-4">
-        <div className="order-3 md:order-none flex items-center gap-4">
+        <div className="order-3 md:order-none flex items-center gap-4 text-white">
           <Avatar name={author?.name || ''} imageSrc={author?.profilePic} />
           <div>
             <span>{author?.name}</span> ·{' '}
-            <span className="text-sm text-slate-500">{formatDateString(publishedDate)}</span>
+            <span className="text-sm text-slate-300">{formatDateString(publishedDate)}</span>
           </div>
         </div>
-        <div className="order-1 md:order-none text-xl font-bold pt-4">{title}</div>
-        <div className="order-2 md:order-none tracking-wide py-4 text-slate-600">
+        <div className="order-1 md:order-none text-2xl font-bold pt-4 text-white text-wrap">{title}</div>
+        <div className="order-2 md:order-none tracking-wide py-4 text-slate-200">
           <ReactQuill value={quillContent} readOnly={true} theme={'bubble'} />
         </div>
       </div>
@@ -49,7 +49,7 @@ const BlogCard = ({ author, title, content, publishedDate, id, fullWidth, tagsOn
             return <Pill id={tagWrapper.tag.id} tagName={tagWrapper.tag.tagName} />;
           })}
         </div>
-        <div className="order-3 md:order-none text-gray-600 pt-4">{Math.ceil(content.length / 300)} min read</div>
+        <div className="order-3 md:order-none text-gray-300 pt-4">{Math.ceil(content.length / 300)} min read</div>
       </div>
     </Link>
   );
