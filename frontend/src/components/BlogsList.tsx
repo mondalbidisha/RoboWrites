@@ -42,7 +42,7 @@ const BlogsList = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center">
+      <div className="flex flex-col justify-center items-center scroll-smooth">
         {blogs.length > 0 &&
           blogs.map((blog) => (
             <BlogCard

@@ -1,30 +1,36 @@
 import { Link } from 'react-router-dom';
+import BackgroundVideo from "./../assets/background-video.mp4";
+import GradualSpacing from './magic-ui/gradual-spacing';
 
 const Hero = () => {
   return (
-    <div className="w-screen h-[100vh] md:h-[40vh] bg-gradient-to-r from-emerald-500 to-emerald-800 flex flex-col justify-center items-center text-white">
-      <h1 className="text-4xl md:text-5xl tracking-wide font-extrabold text-center md:text-left drop-shadow-lg">
-        Stay Curious.
-      </h1>
-      <h6 className="px-8 text-xl md:text-2xl tracking-wide font-light text-center md:text-left py-6 drop-shadow-lg">
-        A place to read, write, and deepen your understanding.
-      </h6>
-      <Link
-        to="/blogs"
-        className="rounded-md px-3.5 py-2 my-1 overflow-hidden relative group cursor-pointer border-2 border-gray-900 font-medium bg-gray-900 text-gray-100"
-      >
-        <span className="absolute w-64 h-0 transition-all duration-300 origin-center rotate-45 -translate-x-20 border-gray-900 group-hover:text-gray-900 group-hover:border group-hover:border-gray-900 group-hover:bg-gray-200 top-1/2 group-hover:h-64 group-hover:-translate-y-32 ease"></span>
-        <span className="relative text-gray-100 transition font-bold duration-300 group-hover:text-gray-900 group-hover:bg-gray-200 ease text-md md:text-lg tracking-wider">
-          Start reading
-        </span>
-      </Link>
-      <div className="container-chevron pt-16 md:hidden">
-          <div className="chevron"></div>
-          <div className="chevron"></div>
-          <div className="chevron"></div>
-          <span className="text">Scroll down</span>
+    <>
+      <div className="relative min-h-screen w-full overflow-x-hidden overflow-y-hidden flex flex-col justify-center items-center text-white">
+        <div className="min-h-screen w-full">
+          <video autoPlay loop muted id="background-video">
+            <source src={BackgroundVideo} type="video/mp4" />
+          </video>
+            <div className="flex flex-col self-center px-20 text-white font-extrabold text-7xl pt-[40vh] mb-10">
+              Unveiling the Future of Tech
+            </div>
+            <div className="flex flex-col self-center px-20 text-white font-medium text-5xl mb-10">
+              <GradualSpacing
+                className="text-5xl font-medium tracking-[-0.1em]"
+                text="One Byte at a Time !!"
+              />
+            </div>
+            <div className="flex flex-col self-center px-20 text-white mb-10">
+              <Link
+                to="/blogs">
+                <span className="homepage-button">
+                  <span className="homepage-button-background"></span>
+                  <span className="homepage-button-text">Start Reading</span>
+                </span>
+              </Link>
+            </div>
         </div>
-    </div>
+      </div>
+    </>
   );
 };
 

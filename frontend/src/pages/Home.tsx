@@ -1,5 +1,5 @@
 import Appbar from '../components/Appbar';
-import BlogsList from '../components/BlogsList';
+// import BlogsList from '../components/BlogsList';
 import Hero from '../components/Hero';
 
 const Home = () => {
@@ -7,7 +7,7 @@ const Home = () => {
     <div>
       <Appbar skipAuthCheck />
       <Hero />
-      <BlogsList />
+      {/* <BlogsList /> */}
     </div>
   );
 };
