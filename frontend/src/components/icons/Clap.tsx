@@ -43,7 +43,7 @@ const ClapIcon = () => {
         viewBox="0 0 285.247 285.247"
         width="20px"
         height="20px"
-        fill="#000000"
+        fill="#FFFFFF"
         transform="matrix(-1, 0, 0, 1, 0, 0)"
       >
         <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>

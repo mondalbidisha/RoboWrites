@@ -50,7 +50,7 @@ const AnimatedMessage: React.FC<AnimatedMessageProps> = ({ showConfetti, onConfe
   }, [showConfetti, onConfettiComplete]);
 
   return (
-    <div style={{ position: 'relative', textAlign: 'center',marginTop: "20px", marginBottom: '60px' }}>
+    <div style={{ position: 'relative', textAlign: 'center'}}>
       {confettiVisible && (
         <div style={{ position: 'absolute', top: -30, transform: 'translateX(-20%)' }}>
           <Confetti width={width} height={100} recycle={false}

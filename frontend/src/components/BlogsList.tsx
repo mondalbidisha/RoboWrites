@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import BlogCard from '../components/BlogCard';
 import { useBlogs } from '../hooks';
 import BlogSkeleton from '../skeletons/BlogsSkeleton';
-import AnimatedMessage from '../components/Blog/AnimatedMessage';
+// import AnimatedMessage from '../components/Blog/AnimatedMessage';
 import ScrollToTopButton from '../components/ScrollToTop';
 
 const BlogsList = () => {
@@ -42,7 +42,7 @@ const BlogsList = () => {
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center scroll-smooth">
+      <div className="flex flex-col justify-center items-center scroll-smooth py-10">
         {blogs.length > 0 &&
           blogs.map((blog) => (
             <BlogCard
@@ -58,7 +58,7 @@ const BlogsList = () => {
       </div>
       {loading && (
         <div className="flex flex-col items-center gap-4 py-8">
-          {[...Array(3)].map((_, i) => (
+          {[...Array(2)].map((_, i) => (
             <BlogSkeleton key={i} />
           ))}
         </div>
@@ -68,12 +68,12 @@ const BlogsList = () => {
           ref={(e) => {
             setInfiniteScrollRef(e);
           }}
-          style={{ height: '10px', width: '100%', backgroundColor: 'transparent', marginBottom: '10px' }}
+          style={{ width: '100%', backgroundColor: 'transparent'}}
         />
       )}
-      {!loading && showEndMessage && (
+      {/* {!loading && showEndMessage && (
         <AnimatedMessage showConfetti={showConfetti} onConfettiComplete={() => setShowConfetti(false)} />
-      )}
+      )} */}
       <ScrollToTopButton />
     </>
   );

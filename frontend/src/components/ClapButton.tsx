@@ -70,8 +70,8 @@ const ClapButton: React.FC<ClapButtonProps> = ({ clapCount, handleClap }) => {
   return (
     <div className="relative inline-block">
       <div className="flex items-center cursor-pointer" onClick={onClap}>
-        <div className={`clap-button ${isClapping ? 'clapping' : ''}`} onClick={handleClapColour}>
-          {clapped ? <ClapIconBlack /> : <ClapIcon />}
+        <div className={`clap-button text-slate-500 ${isClapping ? 'clapping' : ''}`} onClick={handleClapColour}>
+          {clapped ? <ClapIconBlack /> : <ClapIconBlack />}
         </div>
         <span className="ml-2">{clapCount}</span>
       </div>
