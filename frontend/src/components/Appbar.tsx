@@ -12,7 +12,7 @@ interface AppbarProps {
 const Appbar = ({ skipAuthCheck = false, pageActions, hideWriteAction = false }: AppbarProps) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const shouldSnapCenter = ( location.pathname === "/" || location.pathname === "/blogs" ) ? "snap-center" : ""
+  // const shouldSnapCenter = ( location.pathname === "/" || location.pathname === "/blogs" ) ? "snap-center" : ""
   const isUserLoggedIn = localStorage.getItem('token');
   const renderSearchBar = (location.pathname === "/blogs") ? true : false;
 
