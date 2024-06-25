@@ -52,7 +52,7 @@ const VoiceOver = ({ content }: VoiceOverProps) => {
           >
             <Pause />
           </button>
-          <p className="text-sm">Stop listening</p>
+          <p className="text-base">Stop listening</p>
         </div>
       ) : (
         <div className="flex items-center gap-2">
@@ -65,19 +65,19 @@ const VoiceOver = ({ content }: VoiceOverProps) => {
           >
             <Play />
           </button>
-          <p className="text-sm">Listen this article</p>
+          <p className="text-base">Listen to this article</p>
         </div>
       )}
 
       {voiceOverOn ? (
         <div className="px-2">
-          <p className="text-sm px-1 rounded-md">Voice: {selectedVoice?.name}</p>
+          <p className="text-base px-1 rounded-md">Voice: {selectedVoice?.name}</p>
         </div>
       ) : (
         <select
           name="voices"
           id="voices"
-          className="w-20 bg-inherit text-sm"
+          className="w-24 bg-inherit text-base"
           defaultValue={selectedVoice?.name}
           value={selectedVoice?.name}
           onChange={(e) => handleVoiceChange(e.target.value)}

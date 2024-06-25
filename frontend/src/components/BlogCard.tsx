@@ -43,14 +43,14 @@ const BlogCard = ({ author, title, content, publishedDate, id, fullWidth, tagsOn
       <div className="order-1 md:order-none col-span-0 md:col-span-3 md:p-4 flex justify-center items-center">
         <ArticleImage uniqueId={id} />
       </div>
-      <div className="order-3 md:order-none md:flex col-span-full pb-8 px-2 border-b md:border-none border-gray-100">
+      <div className="order-3 md:order-none md:flex col-span-full pb-8 px-2 border-b md:border-none border-gray-100 flex-wrap">
         <div className="flex">
           {tagsOnPost?.slice(0, 2).map((tagWrapper) => {
             return <Pill id={tagWrapper.tag.id} tagName={tagWrapper.tag.tagName} />;
           })}
         </div>
-        <div className="order-3 md:order-none text-gray-300 pt-4">{Math.ceil(content.length / 300)} min read</div>
       </div>
+      <div className="order-3 md:order-none text-gray-300 md:flex col-span-full p-4">{Math.ceil(content.length / 300)} min read</div>
     </Link>
   );
 };

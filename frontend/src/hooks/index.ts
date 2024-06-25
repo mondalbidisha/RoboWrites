@@ -22,6 +22,7 @@ export const useBlogs = () => {
   };
   const fetchBlogs = async () => {
     setLoading(true);
+    setData([]);
 
     let queryString = '';
     if (tagId) {
@@ -53,7 +54,7 @@ export const useBlogs = () => {
 
   useEffect(() => {
     fetchBlogs();
-  }, [page, tagId]);
+  }, [page, tagId, searchParams]);
 
   const blogs = useMemo(() => {
     return data.flatMap((item) => item?.posts ?? []);
