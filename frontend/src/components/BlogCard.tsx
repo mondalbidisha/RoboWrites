@@ -25,7 +25,7 @@ const BlogCard = ({ author, title, content, publishedDate, id, fullWidth, tagsOn
   return (
     <Link
       to={`/blog/${id}`}
-      className={`z-index-10 rounded-md bg-gradient-to-b from-slate-950 via-slate-800 to-slate-950 min-h-screen md:min-h-min md:h-min blog-card md:px-4 md:py-8 ${fullWidth ? 'w-full' : 'w-full md:w-4/6'} my-5 shadow-b-sm flex flex-col justify-between md:grid md:grid-cols-12 md:gap-6 lg:gap-0 hover:outline hover:outline-2 hover:outline-offset-2 hover:outline-slate-100`}
+      className={`z-index-10 rounded-md bg-gradient-to-b from-slate-950 via-slate-800 to-slate-950 min-h-screen md:min-h-min md:h-min blog-card md:px-4 md:py-8 ${fullWidth ? 'w-full' : 'w-full md:w-4/6'} my-5 bg-indigo-500 shadow-lg shadow-indigo-500/50 flex flex-col justify-between md:grid md:grid-cols-12 md:gap-6 lg:gap-0 hover:outline hover:outline-2 hover:outline-offset-2 hover:outline-slate-100 scrollbar-hide`}
     >
       <div className="order-2 flex flex-col md:order-none md:col-span-9 p-4 md:px-4">
         <div className="order-3 md:order-none flex items-center gap-4 text-white">

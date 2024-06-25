@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../index.css';
-import ClapIcon, { ClapIconBlack } from './icons/Clap';
+import { ClapIconBlack } from './icons/Clap';
 
 interface SparkleProps {
   id: number;

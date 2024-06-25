@@ -22,12 +22,6 @@ const ProfileBox = () => {
     navigate('/bookmarks');
   };
 
-  const goToProfile = () => {
-    if (user && user.id) {
-      navigate(`/profile/${user.id}`);
-    }
-  };
-
   const handleClickAway = () => {
     setShow(false);
   };
@@ -43,9 +37,6 @@ const ProfileBox = () => {
           className="absolute -bottom-24 -left-28 shadow-lg bg-gray-50 border rounded-md border-gray-100 z-50 w-[160px]"
         >
           <div className="flex flex-col">
-            {/* <div className="px-4 py-2 hover:bg-gray-300" onClick={goToProfile}>
-              Profile
-            </div> */}
             <div className="px-4 py-2 hover:bg-gray-300" onClick={goToBookmarks}>
               Bookmarks
             </div>

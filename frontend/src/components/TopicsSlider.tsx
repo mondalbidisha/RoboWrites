@@ -1,9 +1,9 @@
-import React, { useRef, useEffect, useState } from 'react';
+import React, { useRef, useEffect } from 'react';
 import LeftArrowIcon from './icons/LeftArrowIcon';
 import RightArrowIcon from './icons/RightArrowIcon';
 import useFetchTopicTags from '../hooks/useFetchTopicTags';
 import SkeletonLoader from '../skeletons/TopicsSkeleton';
-import AddTopicIcon from './icons/AddTopicIcon';
+// import AddTopicIcon from './icons/AddTopicIcon';
 import { useNavigate } from 'react-router-dom';
 
 interface topicProps {
@@ -17,12 +17,12 @@ const TopicsSlider: React.FC<topicProps> = ({ selectedTopic, setSelectedTopic }:
 
   const navigate = useNavigate();
 
-  const [atStart, setAtStart] = useState(true);
+  // const [atStart, setAtStart] = useState(true);
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({ left: 100, behavior: 'smooth' });
-      setAtStart(false);
+      // setAtStart(false);
     }
   };
 
@@ -30,17 +30,17 @@ const TopicsSlider: React.FC<topicProps> = ({ selectedTopic, setSelectedTopic }:
     if (scrollContainerRef.current) {
       scrollContainerRef.current.scrollBy({ left: -100, behavior: 'smooth' });
       // Check if we are back at the start
-      if (scrollContainerRef.current.scrollLeft <= 100) {
-        setAtStart(true);
-      }
+      // if (scrollContainerRef.current.scrollLeft <= 100) {
+      //   setAtStart(true);
+      // }
     }
   };
 
-  const handleScroll = () => {
-    if (scrollContainerRef.current) {
-      setAtStart(scrollContainerRef.current.scrollLeft === 0);
-    }
-  };
+  // const handleScroll = () => {
+  //   if (scrollContainerRef.current) {
+  //     // setAtStart(scrollContainerRef.current.scrollLeft === 0);
+  //   }
+  // };
 
   const handleTopicClick = (value: string) => {
     if(value === selectedTopic) {
@@ -52,16 +52,16 @@ const TopicsSlider: React.FC<topicProps> = ({ selectedTopic, setSelectedTopic }:
     }
   };
 
-  useEffect(() => {
-    if (scrollContainerRef.current) {
-      scrollContainerRef.current.addEventListener('scroll', handleScroll);
-    }
-    return () => {
-      if (scrollContainerRef.current) {
-        scrollContainerRef.current.removeEventListener('scroll', handleScroll);
-      }
-    };
-  }, []);
+  // useEffect(() => {
+  //   if (scrollContainerRef.current) {
+  //     scrollContainerRef.current.addEventListener('scroll', handleScroll);
+  //   }
+  //   return () => {
+  //     if (scrollContainerRef.current) {
+  //       scrollContainerRef.current.removeEventListener('scroll', handleScroll);
+  //     }
+  //   };
+  // }, []);
 
   return (
     <div className="relative flex justify-center items-center w-4/5 mx-auto pt-5 pb-5">
