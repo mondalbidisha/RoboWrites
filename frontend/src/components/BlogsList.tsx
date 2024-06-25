@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
 import BlogCard from '../components/BlogCard';
 import { useBlogs } from '../hooks';
-import BlogSkeleton from '../skeletons/BlogsSkeleton';
+// import BlogSkeleton from '../skeletons/BlogsSkeleton';
 // import AnimatedMessage from '../components/Blog/AnimatedMessage';
 import ScrollToTopButton from '../components/ScrollToTop';
+import { Loader } from './Loader';
 
 const BlogsList = () => {
   const [infiniteScrollRef, setInfiniteScrollRef] = useState<HTMLDivElement | null>(null);
-  const [showEndMessage, setShowEndMessage] = useState(false);
-  const [showConfetti, setShowConfetti] = useState(false);
+  // const [showEndMessage, setShowEndMessage] = useState(false);
+  // const [showConfetti, setShowConfetti] = useState(false);
 
   const { blogs, loading, handleLoadMore } = useBlogs();
 
@@ -29,20 +30,20 @@ const BlogsList = () => {
 
   }, [infiniteScrollRef, loading]);
 
-  useEffect(() => {
-    if (!loading && blogs.length > 0) {
-      const timer = setTimeout(() => {
-      setShowEndMessage(true);
-      setShowConfetti(true);
-      }, 4000);
-      return () => clearTimeout(timer);
-    }
-  }, [blogs, loading]);
+  // useEffect(() => {
+  //   if (!loading && blogs.length > 0) {
+  //     const timer = setTimeout(() => {
+  //     setShowEndMessage(true);
+  //     setShowConfetti(true);
+  //     }, 4000);
+  //     return () => clearTimeout(timer);
+  //   }
+  // }, [blogs, loading]);
 
 
   return (
     <>
-      <div className="flex flex-col justify-center items-center scroll-smooth py-10">
+      <div className="h-full flex flex-col justify-center items-center scroll-smooth py-10 overflow-x-hidden">
         {blogs.length > 0 &&
           blogs.map((blog) => (
             <BlogCard
@@ -55,12 +56,13 @@ const BlogsList = () => {
               tagsOnPost={blog.tagsOnPost}
             />
           ))}
+          {blogs.length === 0 && !loading && <div className="text-center text-3xl text-slate-300 p-24">No posts found</div>}
       </div>
       {loading && (
         <div className="flex flex-col items-center gap-4 py-8">
-          {[...Array(2)].map((_, i) => (
-            <BlogSkeleton key={i} />
-          ))}
+          <Loader 
+            message={"Hang tight, syncing with the tech universe..."}
+          />
         </div>
       )}
       {!loading && (
@@ -71,9 +73,6 @@ const BlogsList = () => {
           style={{ width: '100%', backgroundColor: 'transparent'}}
         />
       )}
-      {/* {!loading && showEndMessage && (
-        <AnimatedMessage showConfetti={showConfetti} onConfettiComplete={() => setShowConfetti(false)} />
-      )} */}
       <ScrollToTopButton />
     </>
   );

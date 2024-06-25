@@ -10,8 +10,10 @@ const Blogs = () => {
   return (
     <>
       <Appbar skipAuthCheck />
-      <TopicsSlider selectedTopic={selectedTopic} setSelectedTopic={setSelectedTopic} />
-      <div className="relative min-h-screen bg-gradient-to-b from-slate-950 via-slate-800 to-slate-950 scroll-smooth">
+      <div className="bg-gradient-to-r from-slate-950 via-slate-800 to-slate-950">
+        <TopicsSlider selectedTopic={selectedTopic} setSelectedTopic={setSelectedTopic} />
+      </div>
+      <div className="min-h-screen overflow-x-hidden overflow-y-auto bg-gradient-to-b from-slate-950 via-slate-800 to-slate-950">
         <Meteors number={50}/>
         <BlogsList />
       </div>

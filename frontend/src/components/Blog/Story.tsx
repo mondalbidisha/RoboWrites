@@ -11,7 +11,6 @@ import Modal from '../Modal';
 import 'react-quill/dist/quill.bubble.css';
 import RemoveIcon from '../icons/Remove';
 import EditIcon from '../icons/Edit';
-import SingleBlogSkeleton from '../../skeletons/SingleBlogSkeleton';
 import { Tags } from '../Tags';
 import ClapButton from '../ClapButton';
 import Avatar from '../Avatar';
@@ -19,6 +18,7 @@ import { formatDateString } from '../../util/string';
 import Meteors from '../magic-ui/meteors';
 import VoiceOver from '../VoiceOver';
 import { getPlainTextFromHTML } from '../../util/string';
+import { Loader } from '../Loader';
 
 const Story = () => {
   const { id } = useParams();
@@ -32,14 +32,16 @@ const Story = () => {
 
   if (loading) {
     return (
-      <div className="flex flex-col justify-center items-center p-4 md:px-10 bg-gradient-to-b from-slate-950 via-slate-800 to-slate-950">
-        <SingleBlogSkeleton />
+      <div className="min-h-screen flex flex-col justify-center items-center p-4 md:px-10 bg-gradient-to-b from-slate-950 via-slate-800 to-slate-950">
+        <Loader 
+            message={"Scanning for tech brilliance..."}
+          />
       </div>
     );
   }
 
   return (
-    <div className="relative flex flex-col justify-center items-center p-4 md:px-10 bg-gradient-to-b from-slate-950 via-slate-800 to-slate-950">
+    <div className="flex flex-col justify-center items-center p-4 md:px-10 bg-gradient-to-b from-slate-950 via-slate-800 to-slate-950">
       <Meteors number={50}/>
       <div className="p-4 max-w-[70%]">
         <div className="text-xl md:text-5xl font-extrabold py-4 line-clamp-4 text-white">{blog?.title}</div>
@@ -62,12 +64,6 @@ const Story = () => {
     </div>
   );
 };
-
-const Loader = () => (
-  <div className="w-screen h-screen flex justify-center items-center">
-    <Spinner />
-  </div>
-);
 
 const ActionBox = () => {
   const navigate = useNavigate();

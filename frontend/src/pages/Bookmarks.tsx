@@ -9,7 +9,7 @@ const Bookmarks = () => {
     <>
       <Appbar />
       {loading ? (
-        <div className="w-screen h-screen flex justify-center items-center">
+        <div className="min-w-screen min-h-screen flex justify-center items-center">
           <Spinner />
         </div>
       ) : (
