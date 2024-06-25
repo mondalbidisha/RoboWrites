@@ -69,9 +69,9 @@ const Register = () => {
     }
   }
   return (
-    <div className="text-center flex flex-col justify-center items-center h-screen md:h-auto">
+    <div className="text-center flex flex-col justify-center items-center h-screen md:h-auto bg-slate-100">
       <h1 className="text-4xl font-bold ">Create an account</h1>
-      <h6>
+      <h6 className="mt-5 text-lg">
         Already have an account?{' '}
         <Link to="/signin" className="underline">
           Login
@@ -106,7 +106,7 @@ const Register = () => {
         </div>
         <button
           onClick={sendRequest}
-          className="w-full bg-black text-white p-4 rounded-md flex justify-center items-center gap-4"
+          className="w-full bg-indigo-950 text-white p-4 rounded-md flex justify-center items-center gap-4 hover:outline outline-offset-2 outline-blue-500 outline-4"
           disabled={loading}
         >
           Sign Up
