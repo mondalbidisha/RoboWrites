@@ -37,9 +37,9 @@ const Login = () => {
       }
     } catch (error) {
       if (axios.isAxiosError(error)) {
-        if (error.response?.status && error.response.status > 300) {
-          toast.error(error.response.data.message || 'Email or Password Mismatch');
-        } else {
+        if (error.response?.status) {
+          toast.error(error.response?.data?.error || 'Email or Password Mismatch');
+        } else if(error.response?.data?.error) {
           toast.error('Something went wrong');
         }
       } else {
@@ -51,12 +51,12 @@ const Login = () => {
   }
 
   return (
-    <div className="text-center flex flex-col justify-center items-center h-screen md:h-auto">
+    <div className="text-center flex flex-col justify-center items-center h-screen md:h-auto bg-slate-100">
       <h1 className="text-4xl font-bold py-2">Sign In</h1>
-      <h6>
+      <h6 className="mt-5 text-lg">
         Don't have an account?{' '}
         <Link to="/signup" className="underline">
-          Signup
+          SignUp
         </Link>
       </h6>
       <div className="lg:w-[400px] md:w-[350px] w-screen px-2 ">
@@ -78,7 +78,7 @@ const Login = () => {
         />
         <button
           onClick={sendRequest}
-          className="w-full bg-black text-white p-4 rounded-md flex justify-center items-center gap-4"
+          className="w-full bg-indigo-950 text-white p-4 rounded-md flex justify-center items-center gap-4 hover:outline outline-offset-2 outline-blue-500 outline-4"
           disabled={loading}
         >
           Sign In
