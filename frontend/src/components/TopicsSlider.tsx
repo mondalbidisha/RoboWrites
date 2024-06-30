@@ -1,9 +1,8 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import LeftArrowIcon from './icons/LeftArrowIcon';
 import RightArrowIcon from './icons/RightArrowIcon';
 import useFetchTopicTags from '../hooks/useFetchTopicTags';
 import SkeletonLoader from '../skeletons/TopicsSkeleton';
-// import AddTopicIcon from './icons/AddTopicIcon';
 import { useNavigate } from 'react-router-dom';
 
 interface topicProps {
@@ -16,8 +15,6 @@ const TopicsSlider: React.FC<topicProps> = ({ selectedTopic, setSelectedTopic }:
   const { tagOptions, loading } = useFetchTopicTags();
 
   const navigate = useNavigate();
-
-  // const [atStart, setAtStart] = useState(true);
 
   const scrollRight = () => {
     if (scrollContainerRef.current) {
